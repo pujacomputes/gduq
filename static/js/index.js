@@ -76,3 +76,15 @@ $(document).ready(function() {
     bulmaSlider.attach();
 
 })
+
+function showLargeImage(imageSrc) {
+  var largeImageOverlay = document.getElementById("large-image-overlay");
+  var largeImage = document.getElementById("large-image");
+  
+  largeImage.src = imageSrc;
+  largeImageOverlay.style.display = "block";
+}
+
+document.getElementById("large-image-overlay").onclick = function() {
+  document.getElementById("large-image-overlay").style.display = "none";
+};

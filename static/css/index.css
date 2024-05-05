@@ -155,3 +155,94 @@ body {
   #interpolation-image-wrapper img {
     border-radius: 5px;
   }
+
+  .logo {
+    display: inline-block;
+    margin-right: 10px; /* Adjust margin as needed */
+  }
+
+  .left-justified-text {
+    text-align: left;
+  }
+
+  .right-justified-image {
+    float: right;
+    margin: 0 0 20px 20px; /* Adjust margin as needed */
+  }
+
+  .custom-list {
+    list-style: none; /* Remove default bullets */
+    padding-left: 0; /* Remove default left padding */
+  }
+  
+  .custom-list li {
+    margin-bottom: 10px; /* Add margin between list items */
+  }
+  
+  .custom-list li:before {
+    content: "\2022"; /* Use Unicode character for bullet (•) */
+    display: inline-block; /* Ensure the bullet is displayed inline */
+    width: 1em; /* Set width of the bullet to align text properly */
+    margin-left: -1em; /* Move bullet to the left to align with text */
+    margin-right: 5px; /* Adjust space between bullet and text */
+  } 
+
+  .image-grid {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .image-link {
+    display: block;
+    margin: 10px;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .image-link img {
+    width: 200px;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .image-link:hover img {
+    transform: scale(1.05);
+  }
+  
+  .caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 5px;
+    text-align: center;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+  }
+  
+  .image-link:hover .caption {
+    opacity: 1;
+  }
+
+  #large-image-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+  }
+  
+  #large-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 90%;
+    max-height: 90%;
+  }
