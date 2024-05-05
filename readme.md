@@ -25,7 +25,7 @@ pytorch_ood
 If you have GLIBC error when installing torch-sparse or pyg-lib, try installing from source. 
 ## Source Code
 
-Please see `scripts/` for example scripts on how to run. This repo is currently being developed, so expect some more scripts and details.
+Please see `scripts/` for example scripts on how to run. ⚠️ This repo is currently being developed, so expect some more scripts and details.
 
 ## Citation
 
@@ -41,3 +41,5 @@ url={https://openreview.net/forum?id=ZL6yd6N1S2}
 ```
 
 ## Acknowledgements 
+Thanks to [CaGCN](https://proceedings.neurips.cc/paper/2021/hash/c7a9f13a6c0940277d46706c7ca32601-Abstract.html) and the [GOOD benchmark](https://github.com/divelab/GOOD/) for providing post hoc calibration techniques and graph OOD benchmark datasets, respectively! 
+
