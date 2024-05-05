@@ -37,7 +37,7 @@
         <div class="column has-text-centered">
           <div class="logo">
             <a href="#">
-              <img src="./assets/gduq_logo.png" alt="Logo" style="width: 100px; height: auto;">
+              <img src="./assets/gduq_logo.png" alt="Logo" style="width: 110px; height: auto;">
             </a>
           </div>
           <h1 class="title is-1 publication-title">Accurate and Scalable Estimation of Epistemic Uncertainty for Graph Neural Networks</h1>
@@ -136,27 +136,27 @@
     </ul>
 
     
-    <h4 class="title">What is Epistemic Uncertainty?</h4>
+    <h3 class="title">What is Epistemic Uncertainty?</h3>
     <p class="left-justified-text"> Given finite data, there are many potential functions (hypotheses) that a model can validly fit. Epistemic uncertainty arises from the lack of knowledge of which hypothesis best aligns with the data. Variability over different hypotheses can be interpreted as the model's uncertainty. For example, Deep Ensembles trains multiple independent models and uses the variance over these models as reliable uncertainty estimates. </p>
 
-    <h4 class="title">What is Stochastic Centering?</h4>
+    <h3 class="title">What is Stochastic Centering?</h3>
     <p class="left-justified-text"> Stochastic centering is a mechanism for sampling multiple functions from a single model by exploiting the neural tangent kernel's lack of shift invariance. Building upon this observation, Thiagarajan et al. demonstrated that by shifting the input with constant bias, the model can learn slightly different fitted functions, where the variance over these functions reliably estimates epistemic uncertainty. Since trivial transformations are sufficient for inducing different functions, it is possible to train single neural network by randomizing the transformation during training and then marginalizing out the effect of the biases during inference. </p>
  
-    <img src="./assets/anchoring.png" alt="Right Justified Image" class="centered-figure">
+    <img src="./assets/anchoring.png" alt="Right Justified Image" class="centered-figure" width="80%">
 
     <p> Thiagarajan et al. introduced ΔUQ as a simple but effective training protocol for creating stochastically centered image models (CNNs, transformers) by representing the input as relative representation. Namely, an input image, X, is represented as the concatenation of another image  (anchor), C, and the residual, [X-C]. The model is trained on the relative input: [X-C,C], where C is randomized during training. </p>
     
-    <img src="./assets/duq_training_narrow.png" alt="Right Justified Image" class="centered-figure">
+    <img src="./assets/duq_training_narrow.png" alt="Right Justified Image" class="centered-figure" width="80%">
 
   <p></p> 
-    <h4 class="title">Anchoring, and Centering and Graphs, Oh my!</h4>
+    <h3 class="title">Anchoring, and Centering and Graphs, Oh my!</h3>
  <p> While stochastic centering has improved calibration and generalization under distribution shift, there are several challenges that must be addressed before applying it to graph data.  
 Namely, while input space transformations, which induce fully stochastic models, were sufficient for sampling diverse functional hypotheses from vision models, it is (i) non-trivial to define such transformations when working with variable sized, discrete graph data and (ii) unclear whether full stochasticity is in fact needed when working with message passing models. </p>
 
 <p>To this end, we introduce three different anchoring strategies that induce different levels of stochasticity, balancing the overall "amount" of diversity, and "effective" or functional diversity of the anchoring distribution. All of these strategies are easy to implement, and some can be used with pretrained models! </p>
 
 
-    <img src="./assets/Overview-of-GDUQ.png" alt="Right Justified Image" class="centered-figure">
+    <img src="./assets/Overview-of-GDUQ.png" alt="Right Justified Image" class="centered-figure" width="80%">
     <ul>
       <li><b>Node Feature Anchoring:</b> induces a fully stochastic model, where anchors are defined using the node features of other nodes in the graph. </li>
       <li><b>Intermediate Message Passing Layer Anchoring:</b> induces a partially stochastic model where the anchors are defined using the hidden representations of other nodes in the batch. </li>
@@ -165,22 +165,21 @@ Namely, while input space transformations, which induce fully stochastic models,
 
     <img src="./assets/pseudocode.png" alt="Right Justified Image" class="centered-figure">
   
-    <p>G-∆UQ improves the OOD ECE over both the vanilla model and end-to-end G-∆UQ at comparable or improved OOD accuracy on 7/8 datasets. Furthermore, pretrained G-∆UQ also improves the ID ECE on all but the GOODMotif (size) datasets (6/8), where it performs comparably to the vanilla model, and maintains the ID accuracy. Overall, highlighting the benefits of both end-to-end and pretrained G-∆UQ.</p>
-  <h4 class="title">Evaluating G-ΔUQ! </h4>
+  <h3 class="title">Evaluating G-ΔUQ! </h3>
 
     <p> We evaluate G-ΔUQ on both node classification and graph classification datasets, on both <a href="https://arxiv.org/abs/2206.08452">covariate and concept shifts</a>, on calibration, generalization, and OOD detection tasks. </p>
 
     
   <h5 class="title">G-ΔUQ improves graph classification calibration on pretrained GNNs! </h5>
-    <img src="./assets/pretrained.png" alt="Right Justified Image" class="centered-figure">
-    
-  <p> GΔ-UQ achieves the best OOD detection AUROC on 5/6 datasets. (It also performs well on the generalization gap prediction tasks. See paper.) </p>
+    <img src="./assets/pretrained.png" alt="Right Justified Image" class="centered-figure" width="80%">
+    <p>G-∆UQ improves the OOD ECE over both the vanilla model and end-to-end G-∆UQ at comparable or improved OOD accuracy on 7/8 datasets. Furthermore, pretrained G-∆UQ also improves the ID ECE on all but the GOODMotif (size) datasets (6/8), where it performs comparably to the vanilla model, and maintains the ID accuracy. Overall, highlighting the benefits of both end-to-end and pretrained G-∆UQ.</p>
+ 
   <h5 class="title">G-ΔUQ improves OOD detection performance! </h5>
-    <img src="./assets/ood_detection_perf.png" alt="Right Justified Image" class="centered-figure">
+    <img src="./assets/ood_detection_perf.png" alt="Right Justified Image" class="centered-figure" width="80%">
   <p> GΔ-UQ achieves the best OOD detection AUROC on 5/6 datasets. (It also performs well on the generalization gap prediction tasks. See paper.) </p>
     
   <h5 class="title">G-ΔUQ improves node classification calibration! </h5>
-    <img src="./assets/nodeclassification_results.png" alt="Right Justified Image" class="centered-figure">
+    <img src="./assets/nodeclassification_results.png" alt="Right Justified Image" class="centered-figure" width="80%">
     <p>We evaluate G Δ-UQ with node feature anchoring on: 4 Datasets, 2 Distribution shifts and 8 Post Hoc Calibration, and find that GΔ-UQ matches or surpasses accuracy and calibration of the vanilla GNN on 8/8 datasets. When combined with post-hoc calibration techniques, G Δ-UQ achieves the best accuracy on 8/8 datasets and the best or 2nd best calibration on 8/8  datasets.  
       </p>
   </div>

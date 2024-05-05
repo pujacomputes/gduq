@@ -246,3 +246,9 @@ body {
     max-width: 90%;
     max-height: 90%;
   }
+
+
+.centered-figure {
+    display: block;
+    margin: 0 auto;
+}
